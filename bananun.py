@@ -21,8 +21,7 @@ class System:
     def add_cart(self, product_name , quantity, acc_id):
         product = self.search_produch_by_name(product_name)
         acc = self.search_acc_by_id(acc_id)
-        print(acc)
-        itemm = CartItem(product,quantity)
+        itemm = Cartitem(product,quantity)
         acc.add_cart_shopping(itemm)
 
 class Account:
@@ -30,17 +29,20 @@ class Account:
         self.__id = user_id
         self.__name = name
         self.__email = email
-        self.__myCart_shopping = []
+        self.__myCart_shopping = Cart([])
     
     def get_acc_id(self):
         return self.__id
 
+    def get_name(self):
+        return self.__name
+    
     def add_cart_shopping(self,cartitemm):
-        self.__myCart_shopping.append(cartitemm)
+        self.__myCart_shopping.add_Cartitem(cartitemm)
 
-
-    def get_cart_shopping(self):
+    def get_cart_shopping(self): 
         return self.__myCart_shopping
+    
 class Product:
     def __init__(self,product_id , name):
         self.__id = product_id
@@ -49,11 +51,30 @@ class Product:
     def get_name_product(self):
         return self.__name
 
-class CartItem:
+
+class Cart:
+    def __init__(self,Cartitem_lst=[]):
+        self.__Cartitem_lst = Cartitem_lst
+
+    def add_Cartitem(self,inp):
+        self.__Cartitem_lst.append(inp)
+
+    def __str__(self):
+        return f'{[[i.get_product().get_name_product(), i.get__quantity() ] for i in self.__Cartitem_lst]}'
+
+class Cartitem:
     def __init__(self, product , quantity):
         self.__product = product
         self.__quantity = quantity
 
+    def get_product(self):
+        return self.__product
+    
+    def get__quantity(self):
+        return self.__quantity
+    
+    def __str__(self):
+        return f'{self.__product} : {self.__quantity}'
 
 #init 
 user_lst = []
@@ -73,4 +94,4 @@ bananaIT = System(user_lst,product_lst)
 bananaIT.add_cart('A',2,'1')
 
 #test add cart
-print(maxkey.get_cart_shopping())
+print('ID :',maxkey.get_acc_id(),'| Name :',  maxkey.get_name() ,'| Cart :', maxkey.get_cart_shopping())
