@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Item</title>
+  <!-- Link to Tailwind CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Link to your custom CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo or Brand Name -->
+      <div class="text-2xl font-bold">MyShop</div>
+
+      <!-- Navigation Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-orange-500">Home</a>
+        <a href="#" class="hover:text-orange-500">Shop</a>
+        <a href="#" class="hover:text-orange-500">About</a>
+        <a href="#" class="hover:text-orange-500">Contact</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="relative w-1/4">
+        <input type="text" placeholder="Search products..." class="w-full p-2 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Account & Cart Icons -->
+      <div class="flex space-x-4 items-center">
+        <!-- Account Link (icon or text) -->
+        <a href="#" class="hover:text-orange-500">Account</a>
+
+        <!-- Cart Icon -->
+        <a href="#" class="relative hover:text-orange-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-1.5 9h-15l-1.5-9zM5 16a2 2 0 1 0 4 0a2 2 0 1 0-4 0zM15 16a2 2 0 1 0 4 0a2 2 0 1 0-4 0z" />
+          </svg>
+          <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container mx-auto p-8">
+
+    <!-- Product Info Section with Grid Layout -->
+    <div class="bg-white shadow-md rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Product Information -->
+      <div>
+        <div class="text-xl font-semibold mb-4">Product Name: Lenovo ThinkVision S22i-30</div>
+        <div class="text-lg text-orange-500 font-bold mb-6">$249.99</div>
+        <div class="mb-6">
+          The Lenovo ThinkVision S22i-30 is a high-quality, versatile monitor perfect for your home or office workspace.
+          With a 21.5-inch display, it provides excellent picture quality and ergonomics for long hours of use.
+        </div>
+      </div>
+
+      <!-- Product Image -->
+      <div>
+        <!-- Updated Image Link -->
+        <img src="https://www.2beshop.com/images/products/Lenovo%20ThinkVision%20S22i-30.jpg" alt="Lenovo ThinkVision S22i-30" class="w-full h-full object-cover rounded-lg mb-4">
+      </div>
+
+    </div>
+
+    <!-- Cart Actions Section -->
+    <div class="flex justify-between mt-6">
+      <!-- Add to Cart Form -->
+      <form action="/add-to-cart" method="post" class="flex-1">
+        <input type="hidden" name="product_id" value="123">
+        <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-600">Add to Cart</button>
+      </form>
+
+      <!-- Purchase Form -->
+      <form action="/purchase" method="post" class="flex-1">
+        <input type="hidden" name="product_id" value="123">
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg w-full hover:bg-blue-600">Purchase</button>
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>
