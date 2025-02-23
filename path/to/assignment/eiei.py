@@ -13,6 +13,7 @@ class Product:
     #     return f"สินค้า {self.name} {status}ครับ/ค่ะ"
     
 class System:
+    
     def __init__(self):
         self.lst_product = []
     

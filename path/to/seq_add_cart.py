@@ -3,9 +3,9 @@ class System:
         self.__acc_lst = acc_lst
         self.__product_lst = product_lst
 
-    def search_acc_by_id(self,id):
+    def search_acc_by_id(self,member_id):
         for acc in self.__acc_lst:
-            if acc.get_acc_id() == id:
+            if acc.get_acc_id() == member_id:
                 return acc
         
     def search_product_by_name(self,name):
